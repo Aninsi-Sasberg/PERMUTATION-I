@@ -1,3 +1,4 @@
+#Ricardo Rodrigues, Maximilian Bernhard 2022
 import pyaudio
 from screeninfo import get_monitors
 
