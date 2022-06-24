@@ -3,13 +3,11 @@ Werktitel: PERMUTATION I
 Werkuntertitel: VIDEO ERGO SUM. AUDIO ERGO SUM
 Ausführende: Ricardo Rodrigues Erl, Maximilian Bernhard
 Kurzbiografie der Autoren:
-    Ricardo Rodrigues Erl
-
-    Maximilian Bernhard
-        (((Lebt schon n Weilchen. Ist interessiert an allem was man hören kann (bis auf das beständige Voranschreiten der Zeit).
-        ((Hallo, mein Name ist Maximilian Bernhard; ich beherrsche 5 Gerichte, 4 davon auf Nudelbasis. Ob ich single bin? -Ja.
-        Danke für Ihre Aufmerksamkeit, ich geh jetzt duschen.)))))
+    Ricardo Rodrigues Erl: Urheber von PERMUTATION I
+    Maximilian Bernhard: Urheber von PERMUTATION I
 
 Werkbeschreibung:
-    Ein Datensatz ist erstmal ein Datensatz. Wie dieser nun genutzt wird muss nicht festgelegt sein. PERMUTATION I erforscht die Zusammenhänge die bei unterschiedlicher Interpretation desselben Datensatzes entstehen.  PERMUTATION I regt dazu an, den Datensatz als Abstraktion eines Kunstwerks auszunutzen. PERMUTATION I lässt Abgebildetes klingen und bildet Klingendes ab.
-    Réné Magritte wie auch 
+    Eingebettet in eine digitale Umgebung werden Klänge, wie auch Bilder auf Datensätze reduziert. In Anlehnung an René Magrittes „La trahison des images“ hinterfragt PERMUTATION I die Beziehung zwischen einem Objekt und seiner Repräsentation. Ob das ästhetische Objekt eines digitalen Kunstwerks nun im Klang bzw. im Bild liegt oder doch im Datensatz, ist erstmal nicht festgelegt.
+    PERMUTATION I bricht mit einer für sich allein stehenden Gegenständlichkeit eines Objekts.
+    PERMUTATION I erforscht die Zusammenhänge verschiedener Gegenständlichkeiten eines Objekts. 
+    PERMUTATION I summiert und demonstriert diese Gegenständlichkeiten und damit das ästhetische Objekt.
