@@ -5,7 +5,6 @@ Ausführende: Ricardo Rodrigues Erl, Maximilian Bernhard
 Kurzbiografie der Autoren:
     Ricardo Rodrigues Erl: Urheber von PERMUTATION I
     Maximilian Bernhard: Urheber von PERMUTATION I
-
 Werkbeschreibung:
     Eingebettet in eine digitale Umgebung werden Klänge, wie auch Bilder auf Datensätze reduziert. In Anlehnung an René Magrittes „La trahison des images“ hinterfragt PERMUTATION I die Beziehung zwischen einem Objekt und seiner Repräsentation. Ob das ästhetische Objekt eines digitalen Kunstwerks nun im Klang bzw. im Bild liegt oder doch im Datensatz, ist erstmal nicht festgelegt.
     PERMUTATION I bricht mit einer für sich allein stehenden Gegenständlichkeit eines Objekts.
