@@ -59,10 +59,11 @@ class AudioReader():
             
     def getFrame(self):
         if len(self.Frame) == CHUNK:
+            self.Framebuffer = self.Frame[:CHUNK]
             return self.Frame[:CHUNK]
         else:
-            time.sleep(0.001)
-            return self.Frame[:CHUNK]
+            self.Framebuffer
+    
        
 
 global rendering
