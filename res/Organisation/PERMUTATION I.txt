@@ -6,9 +6,9 @@ Kurzbiografie der Autoren:
     Ricardo Rodrigues Erl
 
     Maximilian Bernhard
-        Lebt schon n Weilchen. Ist interessiert an allem was man hören kann (bis auf das beständige Voranschreiten der Zeit).
+        (((Lebt schon n Weilchen. Ist interessiert an allem was man hören kann (bis auf das beständige Voranschreiten der Zeit).
         ((Hallo, mein Name ist Maximilian Bernhard; ich beherrsche 5 Gerichte, 4 davon auf Nudelbasis. Ob ich single bin? -Ja.
-        Danke für Ihre Aufmerksamkeit, ich geh jetzt duschen.))
+        Danke für Ihre Aufmerksamkeit, ich geh jetzt duschen.)))))
 
 Werkbeschreibung:
     Ein Datensatz ist erstmal ein Datensatz. Wie dieser nun genutzt wird muss nicht festgelegt sein. PERMUTATION I erforscht die Zusammenhänge die bei unterschiedlicher Interpretation desselben Datensatzes entstehen.  PERMUTATION I regt dazu an, den Datensatz als Abstraktion eines Kunstwerks auszunutzen. PERMUTATION I lässt Abgebildetes klingen und bildet Klingendes ab.
