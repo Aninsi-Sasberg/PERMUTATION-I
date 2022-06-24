@@ -8,7 +8,7 @@ import time
 import screeninfo
 
 # VARIABLES
-CHUNK = 24 
+CHUNK = 960
 FORMAT = pyaudio.paFloat32
 CHANNELS = 1
 RATE = 96000
@@ -64,13 +64,12 @@ class AudioReader():
 
         if len(self.Frame) == CHUNK:
 
+            self.Framebuffer = self.Frame[:CHUNK]
             return self.Frame[:CHUNK]
 
         else:
 
-            time.sleep(0.001)
-
-            return self.Frame[:CHUNK]
+            return self.Framebuffer
        
 
 global rendering, bordersize, width, height, window
