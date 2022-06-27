@@ -1,4 +1,3 @@
-
 from cv2 import BORDER_CONSTANT
 import pyaudio
 import numpy as np
@@ -12,7 +11,7 @@ CHUNK = 960
 FORMAT = pyaudio.paFloat32
 CHANNELS = 1
 RATE = 96000
-INDEX = 2
+INDEX = 1
 MONITOR = 0
 
 
@@ -23,7 +22,6 @@ def convertValue(value):
     fvalue = np.frombuffer(value, dtype='f')
     out = np.multiply(fvalue, 127)
     out = np.add(out, 128).astype(np.uint8)
-    # print(out)
     return out
 
 
@@ -39,9 +37,14 @@ def renderVideo(readthing):
 
         cv2.imshow('window', frame)
 
-        if cv2.waitKey(10) & 0xFF == ord('q'):
+        c = cv2.waitKey(10)
+
+        if c & 0xFF == ord('q'):
             print(frame)
             break
+        elif c & 0xFF == ord(' '):
+            print("SPACE")
+
         
 
 class AudioReader():
@@ -54,10 +57,16 @@ class AudioReader():
     def readFrames(self):
 
         while rendering:
-            
-            self.data = convertValue(stream.read(CHUNK))
-            self.Frame = np.delete(self.Frame, (0), axis=0)
-            self.Frame = np.vstack([self.Frame, self.data])
+
+            if partselector == 1:
+
+                self.data = convertValue(stream.read(CHUNK))
+                self.Frame = np.delete(self.Frame, (0), axis=0)
+                self.Frame = np.vstack([self.Frame, self.data])
+
+            elif partselector == 2:
+
+                pass
 
 
     def getFrame(self):
@@ -70,14 +79,19 @@ class AudioReader():
         else:
 
             return self.Framebuffer
+    
+    def getFullFrame(self):
+
+        pass
        
 
-global rendering, bordersize, width, height, window
+global rendering, bordersize, width, height, window, partselector
 
 screen = screeninfo.get_monitors()[MONITOR]
 
 width, height = screen.width, screen.height
 bordersize = int((width-height)/2)
+partselector = 1
 reader = AudioReader()
 
 p = pyaudio.PyAudio()
