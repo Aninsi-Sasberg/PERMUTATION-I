@@ -63,24 +63,22 @@ class AudioReader():
         self.counter = 0
 
 
+
+
     def readFrames(self):
         
         while rendering:
             print(self.partselector)
 
             if self.partselector == True:
-
-                self.data = convertValue(stream.read(CHUNK))
-                self.Frame = np.delete(self.Frame, (0), axis=0)
-                self.Frame = np.vstack([self.Frame, self.data])
+                self.getPhase1data()
 
             else:
-                
-                self.data = convertValue(stream.read(CHUNK))
-                self.Frame[self.counter,] = self.data
-                self.counter += 1
-                if self.counter >= CHUNK:
-                    self.counter = 0
+                self.getPhase2data()
+                # if convertValue(stream.read(1)) == 0:
+                #     pass
+                # else:
+                    
 
 
     def getFrame(self):
@@ -94,9 +92,17 @@ class AudioReader():
 
             return self.Framebuffer
     
-    def getFullFrame(self):
+    def getPhase1data(self):
+        self.data = convertValue(stream.read(CHUNK))
+        self.Frame = np.delete(self.Frame, (0), axis=0)
+        self.Frame = np.vstack([self.Frame, self.data])
 
-        pass
+    def getPhase2data(self):
+        self.data = convertValue(stream.read(CHUNK))
+        self.Frame[self.counter,] = self.data
+        self.counter += 1
+        if self.counter >= CHUNK:
+            self.counter = 0
 
     def updateSelector(self,sel):
         self.partselector = sel
@@ -110,7 +116,7 @@ screen = screeninfo.get_monitors()[MONITOR]
 
 width, height = screen.width, screen.height
 bordersize = int((width-height)/2)
-partselector = False
+partselector = True
 reader = AudioReader(partselector)
 
 p = pyaudio.PyAudio()
