@@ -25,7 +25,7 @@ def convertValue(value):
     return out
 
 
-def renderVideo(readthing):
+def renderVideo(readthing,partselector):
 
     while rendering:
 
@@ -43,30 +43,44 @@ def renderVideo(readthing):
             print(frame)
             break
         elif c & 0xFF == ord(' '):
+            if partselector == True:
+                partselector = False
+                reader.updateSelector(False)
+            else:
+                partselector = True
+                reader.updateSelector(True)
             print("SPACE")
+            print(partselector)
 
         
 
 class AudioReader():
 
-    def __init__(self):
+    def __init__(self,partselector):
 
         self.Frame = np.zeros((CHUNK,CHUNK),dtype=np.uint8)
+        self.partselector = partselector
+        self.counter = 0
 
 
     def readFrames(self):
-
+        
         while rendering:
+            print(self.partselector)
 
-            if partselector == 1:
+            if self.partselector == True:
 
                 self.data = convertValue(stream.read(CHUNK))
                 self.Frame = np.delete(self.Frame, (0), axis=0)
                 self.Frame = np.vstack([self.Frame, self.data])
 
-            elif partselector == 2:
-
-                pass
+            else:
+                
+                self.data = convertValue(stream.read(CHUNK))
+                self.Frame[self.counter,] = self.data
+                self.counter += 1
+                if self.counter >= CHUNK:
+                    self.counter = 0
 
 
     def getFrame(self):
@@ -83,16 +97,21 @@ class AudioReader():
     def getFullFrame(self):
 
         pass
+
+    def updateSelector(self,sel):
+        self.partselector = sel
+        if not sel:
+            self.counter = 0
        
 
-global rendering, bordersize, width, height, window, partselector
+global rendering, bordersize, width, height, window
 
 screen = screeninfo.get_monitors()[MONITOR]
 
 width, height = screen.width, screen.height
 bordersize = int((width-height)/2)
-partselector = 1
-reader = AudioReader()
+partselector = False
+reader = AudioReader(partselector)
 
 p = pyaudio.PyAudio()
 
@@ -110,7 +129,7 @@ rendering = True
 x = threading.Thread(target=reader.readFrames)
 x.start()
 
-renderVideo(reader)
+renderVideo(reader,partselector)
 
 rendering = False
 cv2.destroyAllWindows()
