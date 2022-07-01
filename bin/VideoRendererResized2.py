@@ -49,8 +49,8 @@ def renderVideo(readthing,partselector):
             else:
                 partselector = True
                 reader.updateSelector(True)
+                reader.renderstart = False
             print("SPACE")
-            print(partselector)
 
         
 
@@ -60,6 +60,7 @@ class AudioReader():
 
         self.Frame = np.zeros((CHUNK,CHUNK),dtype=np.uint8)
         self.partselector = partselector
+        self.renderstart = False
         self.counter = 0
 
 
@@ -68,7 +69,6 @@ class AudioReader():
     def readFrames(self):
         
         while rendering:
-            print(self.partselector)
 
             if self.partselector == True:
                 self.getPhase1data()
@@ -98,11 +98,18 @@ class AudioReader():
         self.Frame = np.vstack([self.Frame, self.data])
 
     def getPhase2data(self):
-        self.data = convertValue(stream.read(CHUNK))
-        self.Frame[self.counter,] = self.data
-        self.counter += 1
-        if self.counter >= CHUNK:
-            self.counter = 0
+        if self.renderstart == False:
+            while convertValue(stream.read(2))[1] == 128:
+                self.Frame = np.zeros((CHUNK,CHUNK), dtype = np.uint8)
+            self.renderstart = True
+            
+        if self.renderstart == True:
+
+            self.data = convertValue(stream.read(CHUNK))
+            self.Frame[self.counter,] = self.data
+            self.counter += 1
+            if self.counter >= CHUNK:
+                self.counter = 0
 
     def updateSelector(self,sel):
         self.partselector = sel
@@ -110,7 +117,7 @@ class AudioReader():
             self.counter = 0
        
 
-global rendering, bordersize, width, height, window
+global rendering, bordersize, width, height, window, renderstart
 
 screen = screeninfo.get_monitors()[MONITOR]
 
@@ -129,7 +136,6 @@ stream = p.open(format=FORMAT,
                 frames_per_buffer=CHUNK*CHANNELS)
 
 rendering = True
-
 
 
 x = threading.Thread(target=reader.readFrames)
