@@ -29,16 +29,14 @@ class Renderer():
 
             # imgarr = np.reshape(Frame, (self.CHUNK,self.CHUNK,3))
 
-            
-
-            cv2.namedWindow('frame', cv2.WND_PROP_FULLSCREEN)
-            cv2.setWindowProperty('frame',cv2.WND_PROP_FULLSCREEN,cv2.WINDOW_FULLSCREEN)
-
             frame = cv2.resize(Frame,(self.height,self.height))
 
             frame = cv2.copyMakeBorder(frame, 0,0,self.bordersize,self.bordersize, BORDER_CONSTANT, None,(0,0,0))
 
             cv2.imshow('frame', frame)
+
+            cv2.namedWindow('frame', cv2.WND_PROP_FULLSCREEN)
+            cv2.setWindowProperty('frame',cv2.WND_PROP_FULLSCREEN,cv2.WINDOW_FULLSCREEN)
 
             c = cv2.waitKey(10)
 
