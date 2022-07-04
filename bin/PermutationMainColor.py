@@ -16,14 +16,24 @@ INDEX = 0
 MONITOR = 0
 
 
+
+
+
 screen = screeninfo.get_monitors()[MONITOR]
+
+
 width, height = screen.width, screen.height
+
+width = 2560
+height = 1600
+
 bordersize = int((width-height)/2)
+print(bordersize)
 
 initialPhaseState = True
 
 reader = AudioReader(CHUNK,FORMAT,CHANNELS,RATE,INDEX)
-renderer = Renderer(reader, CHUNK,initialPhaseState)
+renderer = Renderer(reader, CHUNK,height,bordersize,initialPhaseState)
                 
 rendering = True
 reader.updateRenderState(rendering)
